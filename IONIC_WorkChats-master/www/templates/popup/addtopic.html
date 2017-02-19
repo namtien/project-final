@@ -1,0 +1,52 @@
+<style>
+    .bar.bar-footer {
+        border: 0px !important;
+        border-bottom-color: transparent !important;
+        background-image: none;
+        border-bottom: none;
+    }
+</style>
+
+<ion-modal-view hide-nav-bar="true">
+    <ion-content class="padding text-center">
+        <div style="height: 25px"></div>
+        <img id="logo" src="img/logo.svg" style="width: 62px; height: auto">
+
+        <h2>Add New Topic</h2>
+        <form name="addtopic">
+            <div style="height: 25px"></div>
+            <ion-list class="border-none">
+                <ion-item class="item-input border-bottom">
+                <label>Title: </label>
+                    <input type="text" name ="title" ng-model="topic.title" required>
+                </ion-item>
+            </ion-list>
+            <p ng-show="addtopic.title.$invalid&&addtopic.title.$touched" style="color: red; float: left">Title is required</p>
+            <p style="clear: both;">
+            <ion-list class="border-none">
+                <ion-item class="item-input border-bottom">
+                <label>Describe: </label>
+                    <input type="text" name="describe" ng-model="topic.describe" required>
+                </ion-item>
+            </ion-list>
+            <p ng-show="addtopic.describe.$invalid&&addtopic.describe.$touched" style="color: red; float: left">Describe is required</p>
+            <p style="clear: both;">
+            <ion-list class="border-none" ng-init="topic.type='1'">
+                <ion-item class="">
+                    <label>Public: </label>
+                    <input type="radio" value="1" ng-model="topic.type">
+                    <label>Private: </label>
+                    <input type="radio" value="2" ng-model="topic.type">
+                </ion-item>
+            </ion-list>
+            <div class="padding">
+                <button class="button button-positive" ng-click="addTopic();" ng-disabled="addtopic.$invalid">
+                    OK
+                </button>
+                <a class="button button-assertive" ng-click="closeModal();">
+                    Close
+                </a>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

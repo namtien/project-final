@@ -1,0 +1,38 @@
+<ion-view title="Word Chats">
+  <ion-nav-bar class="bar-assertive">
+    <button nav-direction="back" class="button button-clear button-icon button-positive icon ion-ios-arrow-back"
+            ng-click="historyBack()"></button>
+  </ion-nav-bar>
+
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item>
+        <button class="button button-small button-block icon-left ion-ios-search"
+                ng-click="openSearch()"
+                style="margin: 0">
+          Search for people and groups
+        </button>
+      </ion-item>
+
+      <ion-list ng-repeat="member in members">
+        <ion-item class="item-remove-animate item-avatar" nav-direction="forward">
+          <img ng-src="{{member.avatar}}">
+
+          <span class="badge avatar-badge avatar-badge-s"
+                ng-class="{'badge-positive':member.roomType=='ms_friend', 'badge-stable':member.roomType=='fb_friend'}"
+                ng-if="member.roomType!='group'">
+            <i class="icon ion-ios-bolt" ng-if="member.roomType=='ms_friend'"></i>
+            <i class="icon ion-social-facebook light" ng-if="member.roomType=='fb_friend'"></i>
+          </span>
+
+          <h3>
+            <small>{{member.name}}</small>
+          </h3>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </ion-content>
+  <multiple-views-support width="30%"></multiple-views-support>
+
+</ion-view>
+

@@ -1,0 +1,43 @@
+<ion-view title="{{ message.subject }}">
+
+  <ion-nav-bar class="bar-light">
+  </ion-nav-bar>
+
+
+  <ion-content class="padding">
+    <div style="height: 10px"></div>
+
+    <div class="list border-none" ng-repeat="item in message">
+      <div class="item item-avatar-s chat-friend" ng-if="item.idSend != idSend">
+        <img ng-src="{{item.avatar}}">
+
+        <span class="badge avatar-badge avatar-badge-xs"
+              ng-class="{'badge-positive':chat.user.friendType=='Messenger', 'badge-stable':chat.user.friendType=='facebook'}">
+          <i class="icon ion-ios-bolt" ng-if="chat.user.friendType=='Messenger'"></i>
+          <i class="icon ion-social-facebook light" ng-if="chat.user.friendType=='facebook'"></i>
+        </span>
+
+        <p class="chat-text stable-bg">
+          {{item.text}}</p>
+      </div>
+
+      <div class="item item-avatar-right-s chat-me text-right" ng-if="item.idSend == idSend">
+        <img ng-src="{{item.avatar}}">
+
+        <p class="chat-text positive-bg text-left">
+          {{item.text}}</p>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-light chat-bar">
+    <form class="row" name="theform">
+
+      <input class="col col-75 text-wrap item-text-wrap" type="text" ng-model="chatText" ng-minlength="2"
+             ng-maxlength="100" ng-required="true" title="">
+      <button class="col button" ng-click="sendChat(chatText); chatText = null" ng-disabled="theform.$invalid">Send
+      </button>
+    </form>
+  </ion-footer-bar>
+
+  <multiple-views-support width="70%"></multiple-views-support>
+</ion-view>

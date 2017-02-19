@@ -1,0 +1,30 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        },
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        },
+        "cordova.custom.plugins.exitapp": {
+            "PACKAGE_NAME": "com.ionicframework.workchats336608"
+        }
+    },
+    "dependent_plugins": {}
+}

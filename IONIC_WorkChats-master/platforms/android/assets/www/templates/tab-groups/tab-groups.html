@@ -1,0 +1,49 @@
+<style>
+  .plus-circle {
+    display: inline-block;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: 2px dashed #D9D9D9;
+    padding: 7px;
+  }
+
+  .plus-circle i {
+    font-size: 40px;
+  }
+
+  .item h3 small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+</style>
+
+<ion-view view-title="Groups" id="tab-groups">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-icon button-light icon ion-plus" ng-click="addGroup()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+        <div class="row" ng-repeat="group in groups">
+          <div class="col col-50" >
+            <div class="list card" >
+              <a nav-direction="forward" class="item item-avatar item-avatar-center item-avatar-l text-center"
+                 href="#/tab/groups/{{group.infomation.id}}">
+                <img ng-src="{{group.infomation.avatar}}">
+                <h3>
+                  <small>{{group.infomation.name}}</small>
+                </h3>
+
+                <p>{{group.infomation.address}}</p>
+              </a>
+
+              <a nav-direction="forward" class="item item-divider text-center" href="#/tab/groups/{{group.id}}">
+                <p>{{group.infomation.address}}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+  </ion-content>
+</ion-view>

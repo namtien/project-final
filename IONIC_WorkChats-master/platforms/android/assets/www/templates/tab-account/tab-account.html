@@ -1,0 +1,44 @@
+<ion-view view-title="Account">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="openModal()">Edit</button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="logout()">Logout</button>
+
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar item-avatar-center item-avatar-xl text-center">
+        <img id="avatar" src="{{change.avatar}}">
+        <h3>
+          <small>{{ change.username }}</small>
+        </h3>
+        <button class="button button-clear button-small">{{ change.useremail }}</button>
+      </ion-item>
+
+      <!-- <ion-toggle  ng-model="settings.enableFriends">
+          Enable Friends
+      </ion-toggle> -->
+
+      <ion-item class="item-icon-right">
+        <h3>
+          <small>Phone</small>
+        </h3>
+        <p>{{ change.userphone }}</p>
+      </ion-item>
+      <ion-item class="item-icon-right">
+        <h3>
+          <small>Sex</small>
+        </h3>
+        <p>{{ change.usersex }}</p>
+      </ion-item>
+      <ion-item class="item-icon-right">
+        <h3>
+          <small>Address</small>
+        </h3>
+        <p>{{ change.useraddress }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

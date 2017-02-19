@@ -1,0 +1,42 @@
+<ion-view>
+  <ion-nav-buttons side="primary">
+    <button nav-direction="back" class="button button-clear button-icon button-clear icon ion-ios-arrow-back"
+            ng-click="historyBack()"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <a ng-href="{{room.settingURL}}">
+      {{chat.name}}
+    </a>
+  </ion-nav-title>
+  <ion-content class="padding">
+    <div style="height: 10px"></div>
+    <div class="list border-none" ng-repeat="chat in chatList">
+      <div class="item item-avatar-s chat-friend" ng-if="chat.idSend != idSend">
+        <img ng-src="{{chat.avatar}}">
+        <span class="badge avatar-badge avatar-badge-xs"
+              ng-class="{'badge-positive':chat.user.friendType=='Messenger', 'badge-stable':chat.user.friendType=='facebook'}">
+          <i class="icon ion-ios-bolt" ng-if="chat.user.friendType=='Messenger'"></i>
+          <i class="icon ion-social-facebook light" ng-if="chat.user.friendType=='facebook'"></i>
+        </span>
+        <p class="chat-text stable-bg">
+          {{chat.text}}</p>
+      </div>
+      <div class="item item-avatar-right-s chat-me text-right" ng-if="chat.idSend == idSend">
+        <img ng-src="{{chat.avatar}}">
+        <p class="chat-text positive-bg text-left">
+          {{chat.text}}</p>
+      </div>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar class="bar-light chat-bar">
+    <form class="row" name="theform">
+      <input type = "file" file-model = "myFile"/>
+      <input class="col col-75" type="text" ng-model="chatText"
+             ng-minlength="1" ng-required="true" title="" data-emojiable="true" focus-me="shouldBeOpen">
+      <button class="col button" ng-click="sendChat(chatText); chatText = null" ng-disabled="theform.$invalid">Send
+      </button>
+    </form>
+
+  </ion-footer-bar>
+</ion-view>

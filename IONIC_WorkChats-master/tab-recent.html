@@ -1,0 +1,70 @@
+<ion-view view-title="Recent">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-icon button-positive icon ion-ios-compose-outline"
+            ng-click="openNewChat()"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list ng-if="members">
+
+      <form name="input" class="">
+        <span class=" input-search item-input-wrapper" style="background: none">
+          <i class="icon ion-ios-search-strong placeholder-icon"></i>
+          <input
+            type="search" ng-model="search" name="searchName" required
+            placeholder="Search for people" style="font-weight: normal; width: 100%; height: auto">
+
+          <button class="filter-bar-clear button button-icon icon ion-ios-close-empty"
+                  ng-show="input.searchName.$valid" ng-click="btnClean(); search=null;">
+
+          </button>
+
+        </span>
+      </form>
+
+      <ion-list ng-repeat="member in members | filter :search">
+        <ion-item class="item-remove-animate item-avatar item-icon-right" nav-direction="forward"
+                  href="#/tab/chats/{{member.$id}}"
+                  type="item-text-wrap">
+          <img ng-src="{{member.information.avatar}}">
+
+          <span class="badge avatar-badge avatar-badge-s"
+                ng-class="{'badge-positive':true, 'badge-stable':true}"
+                ng-if="true">
+                        <i class="icon ion-ios-bolt" ng-if="true"></i>
+
+                    </span>
+
+          <h3>
+            <small>{{member.information.name}}</small>
+          </h3>
+
+          <p>{{room.latest_chat}}</p>
+
+          <span class="item-note">{{room.activeTime}}</span>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-option-button class="button-assertive" ng-click="remove(room)">
+            Delete
+          </ion-option-button>
+
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <!--show when there is no activity-->
+    <div ng-if="!members">
+      <div style="height: 60px"></div>
+      <div class="text-center" style="padding: 45px">
+        <h2 class="grey">
+          Recent
+        </h2>
+
+        <div style="height: 10px"></div>
+        <h4 class="grey">Once you start chatting, all your messages will be here.</h4>
+
+        <div style="height: 20px"></div>
+        <button class="button button-outline" ng-click="openNewChat()">New Message</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

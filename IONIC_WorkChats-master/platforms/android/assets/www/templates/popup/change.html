@@ -1,0 +1,82 @@
+<style>
+  .bar.bar-footer {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none;
+    border-bottom: none;
+  }
+</style>
+
+<ion-modal-view hide-nav-bar="true">
+  <ion-content class="padding text-center">
+    <div style="height: 25px"></div>
+    <!--<img id="logo" src="img/logo.svg" style="width: 62px; height: auto">-->
+
+    <img id="logo" ng-src="{{changeinfo.avatar}}" style="width: 62px; height: auto">
+
+    <h2>Change your information</h2>
+    <form name="changeinfo">
+      <div style="height: 25px"></div>
+      <ion-list class="border-none">
+        <ion-item class="item-input border-bottom">
+          <label>Email: </label>
+          <input type="email" name="email" ng-model="change.useremail" required>
+        </ion-item>
+      </ion-list>
+      <p ng-show="changeinfo.email.$invalid" style="color: red; float: left">Email is required</p>
+      <p style="clear: both;">
+        <ion-list class="border-none">
+          <ion-item class="item-input border-bottom">
+            <label>Name: </label>
+            <input type="text" name="username" ng-model="change.username" required>
+          </ion-item>
+        </ion-list>
+      <p ng-show="changeinfo.username.$invalid" style="color: red; float: left">Username is required</p>
+      <p style="clear: both;">
+        <ion-list class="border-none">
+          <ion-item class="item-input border-bottom">
+            <label>Phone: </label>
+            <input type="text" name="phone" ng-model="change.userphone" required>
+          </ion-item>
+        </ion-list>
+      <p ng-show="changeinfo.phone.$invalid" style="color: red; float: left">Phone is required</p>
+      <p style="clear: both;">
+        <ion-list class="border-none">
+          <ion-item class="item-input border-bottom">
+            <label>Address: </label>
+            <input type="text" name="address" ng-model="change.useraddress" required>
+          </ion-item>
+        </ion-list>
+      <p ng-show="changeinfo.address.$invalid" style="color: red; float: left">Address is required</p>
+      <p style="clear: both;">
+      Image: <input type="file" name="file" onchange="angular.element(this).scope().photoChanged(this.files)">
+        <br />
+        <img ng-src="{{ thumbnail.dataUrl }}" />
+        <ion-list class="border-none" ng-show="checked">
+          <ion-item class="item-input border-bottom" ng-init="change.userpassword=''">
+            <label>Password: </label>
+            <input type="password" name="password" ng-model="change.userpassword" ng-minlength="6">
+          </ion-item>
+        </ion-list>
+      <p ng-show="changeinfo.password.$invalid" style="color: red; float: left">Password is at least 6 character</p>
+      Change password: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"
+                              ng-change="resetpass()"><br/>
+      <ion-list class="border-none">
+        <ion-item class="">
+          <input type="radio" value="Boy" ng-model="change.usersex">
+          <label>Boy</label>
+          <input type="radio" value="Girl" ng-model="change.usersex">
+          <label>Girl</label>
+        </ion-item>
+      </ion-list>
+      <div class="padding">
+        <button class="button button-positive" ng-disabled="changeinfo.$invalid" ng-click="saveChange();">
+          OK
+        </button>
+        <a class="button button-assertive" ng-click="closeModal();">
+          Close
+        </a>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

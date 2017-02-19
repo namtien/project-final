@@ -1,0 +1,47 @@
+<ion-view view-title="Groups">
+
+  <ion-nav-buttons side="primary">
+    <button nav-direction="back" class="button button-clear button-icon  icon ion-ios-arrow-back"
+            ng-click="backToGroups()"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right" class="bar-positive">
+    <button class="button button-clear button-icon  icon ion-compose" ng-click="newTopic()"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-title>
+    <a ng-href="{{room.settingURL}}">
+      {{groups.name}}
+    </a>
+  </ion-nav-title>
+
+  <ion-content>
+    <h1>List topics</h1>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="topic in topics"
+                type="item-text-wrap" href="#/masterDetail/messages/{{topic.$id}}">
+        <img ng-src="{{topic.avatar}}">
+        <h2>{{topic.title}}</h2>
+        <p>{{topic.type}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+
+
+    <h1>List member</h1>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="member in members"
+                type="item-text-wrap" href="#/masterDetail/messages/{{topic.$id}}" style=" display: block;
+    margin: 0 auto;">
+        <img ng-src="{{member.avatar}}" style=" text-align: center;">
+        <h2>{{member.name}}</h2>
+        <p>{{member.address}}</p>
+        <p>{{member.sex}}</p>
+        <p>{{member.phone}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

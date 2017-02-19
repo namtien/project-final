@@ -1,0 +1,37 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="padding text-center">
+
+    <img src="img/logo.png" style="width: 150px; height: auto; margin-top: 50px">
+
+    <h3>Sign up with Work chats</h3>
+
+    <div class="" style="width: 50%; margin-left:25%; margin-top: 30px">
+      <form class="signUpForm">
+        <ion-list class="border-none">
+          <ion-item class="item-input border-bottom">
+            <input type="text" name="name" ng-model="signUp.email" placeholder="Email"
+                   style=" font-weight: normal;" ng-required="true">
+          </ion-item>
+
+          <ion-item class="item-input border-bottom">
+            <input type="password" name="password" ng-model="signUp.password" placeholder="Password"
+                   style=" font-weight: normal;" ng-required="true">
+          </ion-item>
+
+          <ion-item class="item-input border-bottom">
+            <input type="password" name="confirmPassword" ng-model="signUp.confirmPassword"
+                   placeholder="Confirm Password" style=" font-weight: normal;" ng-required="true">
+          </ion-item>
+        </ion-list>
+      </form>
+    </div>
+
+    <div class="padding">
+
+      <button class="button button-medium button-positive"
+              ng-disable="!signUpForm.email.$valid && !signUpForm.password.valid && !signUpForm.confirmPassword.valid"
+              ng-click="btnSignUp()" style="padding-left: 30px; padding-right: 30px">
+        Sign Up
+      </button>
+  </ion-content>
+</ion-view>

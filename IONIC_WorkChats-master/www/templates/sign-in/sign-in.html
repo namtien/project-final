@@ -1,0 +1,44 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="padding text-center">
+
+    <img src="img/logo.png" style="width: 150px; height: auto; margin-top: 25px">
+
+    <h2>Welcome to Work Chats</h2>
+
+    <div class="" style="width:60%; margin-left: 20%; margin-top: 25px">
+
+      <ion-list class="border-none">
+        <ion-item class="item-input border-bottom">
+          <input type="email" name="email" placeholder="Email" ng-model="signIn.email" ng-required="true" alt=""
+                 style=" font-weight: normal; background: #FFFFFF">
+        </ion-item>
+
+        <div class=""
+             style="color: #f11219;font-family: Arial Black;display: block;text-align: left;padding: 2px 0px 2px 0px; float: left"
+             ng-required="true">
+          <h6 ng-show="email.$valid && email.$touched">input do not match.</h6>
+        </div>
+
+        <br>
+        <ion-item class="item-input border-bottom">
+          <input type="password" placeholder="Password" ng-model="signIn.password" ng-required="true"
+                 style=" font-weight: normal;" ng-required="true">
+        </ion-item>
+      </ion-list>
+
+      <div class="padding">
+        <button class="button button-medium button-positive" ng-click="btnSignIn()"
+                style="padding-left: 40px; padding-right: 40px" ng-disabled="email.$valid && pasword.$valid">
+          Sign In
+        </button>
+      </div>
+
+      <div class="">
+        <a class="button button-clear" href="#/signUp" style="text-align: left">Sign Up</a>
+        <a class="button button-clear" href="#/forgotPassword">Forgot password</a>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
